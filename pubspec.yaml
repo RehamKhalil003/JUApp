@@ -1,0 +1,54 @@
+name: my_first_project
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_native_splash: ^2.0.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/Logo.jpeg
+    - assets/log-out.jpeg
+    - assets/collapse.jpeg
+    - assets/expand.jpeg
+    - assets/school.jpeg
+    - assets/email.jpeg
+    - assets/payment-card.jpeg
+    - assets/request-image.jpeg
+    - assets/home-image.jpeg
+    - assets/registration.jpeg
+    - assets/profile-image.jpeg
+    - assets/hide-password.jpeg
+    - assets/phone-cell.jpeg
+    - assets/email-image.jpeg
+    - assets/microsoft-image.jpeg
+    - assets/back-button.jpeg
+    - assets/lock.jpeg
+    - assets/person.jpeg
+    - assets/show-password.jpeg
+    - assets/absence.jpeg
+    - assets/request-open-courses.jpeg
+    - assets/book.jpeg
+    - assets/change-password.jpeg
+    - assets/edit-information.jpeg
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/Logo.jpeg
+  android: true
+  ios: true
+  web: false
