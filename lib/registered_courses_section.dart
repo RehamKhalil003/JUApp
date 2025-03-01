@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class RegisteredCoursesSection extends StatelessWidget {
   final int initialVisibleCourses;
   final bool showAll;

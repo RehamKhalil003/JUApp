@@ -122,7 +122,6 @@ Widget _buildOption(BuildContext context, String imagePath, String title, Widget
     ),
   );
 }
-
 // SMS Page
 class SMSPage extends StatelessWidget {
   final TextEditingController _universityNumberController = TextEditingController();
