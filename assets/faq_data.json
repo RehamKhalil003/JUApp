@@ -1,0 +1,44 @@
+{
+  "faqs": [
+    {
+      "question": "How do I register for courses?",
+      "answer": "You can register for courses through the student portal or visit the registration office."
+    },
+    {
+      "question": "What is the deadline for course registration?",
+      "answer": "The deadline for course registration is usually at the beginning of each semester. Please check the university calendar for exact dates."
+    },
+    {
+      "question": "How can I access my course materials?",
+      "answer": "Course materials can be accessed through the course portal or via your professor's shared resources."
+    },
+    {
+      "question": "Where can I find the course schedule?",
+      "answer": "The course schedule can be found on the student portal under 'Course Registration'."
+    },
+    {
+      "question": "How do I drop a course?",
+      "answer": "You can drop a course via the student portal, or you can contact the registration office."
+    },
+    {
+      "question": "How can I get my grades?",
+      "answer": "Grades are available through the student portal after being uploaded by your professors."
+    },
+    {
+      "question": "How do I update my personal information?",
+      "answer": "To update your personal information, visit your student profile page on the student portal."
+    },
+    {
+      "question": "Where can I apply for financial aid?",
+      "answer": "Financial aid applications can be submitted through the student portal, or you can contact the financial aid office."
+    },
+    {
+      "question": "How do I reset my student portal password?",
+      "answer": "You can reset your password by clicking on 'Forgot Password' on the student portal login page."
+    },
+    {
+      "question": "What are the graduation requirements?",
+      "answer": "Graduation requirements can be found on the university's official website or by meeting with your academic advisor."
+    }
+  ]
+}

@@ -1,23 +1,6 @@
-// import 'package:flutter/material.dart';
-// import 'package:my_first_project/sign_in.dart';
-//
-// void main() {
-//   runApp(const MyApp());
-// }
-//
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       home: SignInPage(), // Run directly on SignInPage
-//     );
-//   }
-// }
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:string_similarity/string_similarity.dart';
 import 'package:csv/csv.dart';
 
 void main() {
@@ -41,10 +24,19 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController _controller = TextEditingController();
-  final List<Map<String, String>> _messages = []; // Chat messages list
-  List<List<dynamic>> _csvData = []; // Store parsed CSV data
-  String? _studentId; // Store the current student ID selected by the user
-  List<dynamic> _studentData = []; // Store data of the selected student
+  final List<Map<String, String>> _messages = [];
+  List<List<dynamic>> _csvData = [];
+  String? _studentId ;
+  List<dynamic> _studentData = [];
+  bool _isStudentIdEntered = false;
+
+  final Map<String, String> faqData = {
+    "What are completed courses?": "Completed courses are those that the student has successfully finished.",
+    "What are not completed courses?": "Not completed courses are the courses that the student has yet to finish.",
+    "How do I register for courses?": "You can register for courses through the student portal on the university website.",
+    "How do I reset my password?": "You can reset your password via the university portal by clicking 'Forgot Password'.",
+    "What is the grading system?": "The grading system follows a scale from A to F. A is excellent, B is good, etc.",
+  };
 
   @override
   void initState() {
@@ -52,7 +44,6 @@ class _ChatScreenState extends State<ChatScreen> {
     _loadCSV();
   }
 
-  // Load CSV file from assets
   Future<void> _loadCSV() async {
     final String csvString = await rootBundle.loadString('assets/students.csv');
     List<List<dynamic>> csvList = CsvToListConverter(
@@ -61,9 +52,8 @@ class _ChatScreenState extends State<ChatScreen> {
       textDelimiter: '"',
     ).convert(csvString);
 
-    // Remove header row
     if (csvList.isNotEmpty) {
-      csvList.removeAt(0);
+      csvList.removeAt(0); // Remove header row
     }
 
     setState(() {
@@ -71,16 +61,41 @@ class _ChatScreenState extends State<ChatScreen> {
     });
   }
 
-  // Fetch student data and suggest courses
-  // Fetch student data and suggest courses
-  void _fetchStudentData(String studentId) {
-    if (_csvData.isEmpty) {
-      _sendMessage('Error: Data not loaded yet!', sender: 'bot');
-      return;
-    }
+  void _sendMessage(String message, {String sender = 'user'}) {
+    setState(() {
+      _messages.insert(0, {'sender': sender, 'message': message});
+    });
+  }
 
+  void _handleUserInput(String userInput) {
+    userInput = userInput.trim();
+
+    if (_isValidStudentId(userInput)) {
+      _fetchStudentData(userInput);
+    } else if (_isStudentIdEntered) {
+      // Check if the input is a valid course selection (1 or 2)
+      if (userInput == '1') {
+        _sendMessage('📚 **Completed Courses:** ${_studentData[2]}', sender: 'bot');
+      } else if (userInput == '2') {
+        _sendMessage('📌 **Not Completed Courses:** ${_studentData[3]}', sender: 'bot');
+      } else {
+        // Check if the input matches an FAQ
+        _handleFaq(userInput);
+      }
+    } else {
+      // If not a valid Student ID and FAQ, handle as a regular FAQ or invalid
+      _handleFaq(userInput);
+    }
+  }
+
+  bool _isValidStudentId(String studentId) {
+    return RegExp(r'^\d+$').hasMatch(studentId) &&
+        _csvData.any((row) => row[1].toString().trim() == studentId);
+  }
+
+  void _fetchStudentData(String studentId) {
     var studentData = _csvData.firstWhere(
-          (row) => row[1].toString().trim() == studentId.trim(),
+          (row) => row[1].toString().trim() == studentId,
       orElse: () => [],
     );
 
@@ -89,41 +104,27 @@ class _ChatScreenState extends State<ChatScreen> {
       return;
     }
 
-    // Store the student data and ID
     setState(() {
       _studentId = studentId;
       _studentData = studentData;
+      _isStudentIdEntered = true;
     });
 
-    // Send a message to choose an option with instructions
-    _sendMessage('Please choose an option to see: Type 1 for Completed Courses or 2 for Not Completed Courses', sender: 'bot');
+    _sendMessage('Student ID confirmed! Choose an option: Type **1** for Completed Courses or **2** for Not Completed Courses.', sender: 'bot');
   }
 
+  void _handleFaq(String userQuestion) {
+    final bestMatch = faqData.entries.map((entry) => {
+      'question': entry.key,
+      'similarity': userQuestion.similarityTo(entry.key),
+      'answer': entry.value
+    }).reduce((current, next) =>
+    (current['similarity'] as double) > (next['similarity'] as double) ? current : next);
 
-  // Send message function
-  void _sendMessage(String message, {String sender = 'user'}) {
-    setState(() {
-      _messages.insert(0, {'sender': sender, 'message': message});
-    });
-  }
-
-  // Handle the user input and display corresponding courses
-  void _handleUserChoice(String userChoice) {
-    if (_studentId == null || _studentData.isEmpty) {
-      _sendMessage('Please enter a valid student ID first!', sender: 'bot');
-      return;
-    }
-
-    if (userChoice == '1' || userChoice.toLowerCase() == 'completed courses') {
-      String completedRaw = _studentData[2].toString();
-      List<String> completedCourses = completedRaw.split(',').map((e) => e.trim()).toList();
-      _sendMessage('Completed courses: ${completedCourses.join(', ')}', sender: 'bot');
-    } else if (userChoice == '2' || userChoice.toLowerCase() == 'not completed courses') {
-      String notCompletedRaw = _studentData[3].toString();
-      List<String> notCompletedCourses = notCompletedRaw.split(',').map((e) => e.trim()).toList();
-      _sendMessage('Not completed courses: ${notCompletedCourses.join(', ')}', sender: 'bot');
+    if ((bestMatch['similarity'] as double) > 0.5) {
+      _sendMessage(bestMatch['answer'] as String, sender: 'bot');
     } else {
-      _sendMessage('Invalid choice, please type 1 for Completed Courses or 2 for Not Completed Courses.', sender: 'bot');
+      _sendMessage("❌ Sorry, I didn't understand. Please enter a valid Student ID or ask a relevant question.", sender: 'bot');
     }
   }
 
@@ -138,7 +139,7 @@ class _ChatScreenState extends State<ChatScreen> {
         children: [
           Expanded(
             child: ListView.builder(
-              reverse: true, // Show latest messages at the bottom
+              reverse: true,
               itemCount: _messages.length,
               itemBuilder: (context, index) {
                 final message = _messages[index];
@@ -178,10 +179,8 @@ class _ChatScreenState extends State<ChatScreen> {
                   child: TextField(
                     controller: _controller,
                     decoration: InputDecoration(
-                      hintText: 'Enter student number...',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
+                      hintText: 'Enter Student ID or Ask a Question...',
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
                     ),
                   ),
                 ),
@@ -191,11 +190,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     String userInput = _controller.text.trim();
                     if (userInput.isNotEmpty) {
                       _sendMessage(userInput, sender: 'user');
-                      if (_studentId == null) {
-                        _fetchStudentData(userInput);
-                      } else {
-                        _handleUserChoice(userInput);
-                      }
+                      _handleUserInput(userInput);
                       _controller.clear();
                     }
                   },
