@@ -11,9 +11,11 @@ dependencies:
   string_similarity: ^2.0.0  # Add this dependency instead of fuzzy
   flutter:
     sdk: flutter
+
   cupertino_icons: ^1.0.8
   flutter_native_splash: ^2.0.5
   csv: ^5.0.2
+  onesignal_flutter: ^5.1.2
 
 
 dev_dependencies:
@@ -49,6 +51,7 @@ flutter:
     - assets/book.jpeg
     - assets/change-password.jpeg
     - assets/faq_data.json
+    - assets/faq.csv
     - assets/edit-information.jpeg
 
 flutter_native_splash:

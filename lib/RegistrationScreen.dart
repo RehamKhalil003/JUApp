@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_first_project/StudyLoadScreen.dart';
+import 'package:my_first_project/UniversityFeesScreen.dart';
+import 'package:my_first_project/WithdrawalRequests.dart';
 import 'CancelRequest.dart';
 import 'TimeReservation.dart';
 
@@ -56,14 +59,13 @@ class RegistrationScreenState extends State<RegistrationScreen> {
                   } else if (item['title'] == 'Course Registration') {
                     // Navigate to course registration page
                   } else if (item['title'] == 'Cancel Requests') {
-                    // Navigate to cancel requests page
                     Navigator.push(context, MaterialPageRoute(builder: (context) => ClosedRequestsTable()),);
                   } else if (item['title'] == 'Withdrawal without Record') {
-                    // Navigate to withdrawal page
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => WithdrawalRequestsTable()),);
                   } else if (item['title'] == 'Automatic Study Load') {
-                    // Navigate to study load page
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => StudyLoadScreen()),);
                   } else if (item['title'] == 'Pay University Fees') {
-                    // Navigate to pay fees page
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => UniversityFees()),);
                   }
                 },
               ),
