@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:my_first_project/change_password.dart';
-
+import 'package:my_first_project/Chat/ChatScreen.dart';
 class MyProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Color(0xFF00a650),
         title: const Text(
           'Profile',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
@@ -95,6 +95,16 @@ class MyProfileScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ChatScreen()),
+          );
+        },
+        backgroundColor: const Color(0xFF00a650), // Match theme color
+        child: const Icon(Icons.chat, color: Colors.white),
       ),
     );
   }

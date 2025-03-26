@@ -45,7 +45,7 @@ class _CustomTabBarControllerState extends State<CustomTabBarController> {
       alignment: Alignment.bottomCenter,
       children: [
         Container(
-          color: const Color(0xFF0088d1),
+          color: const Color(0xFF00a650),
           child: BottomNavigationBar(
             backgroundColor: Colors.transparent,
             elevation: 0,

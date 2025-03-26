@@ -19,7 +19,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.blueAccent,
+        backgroundColor:const Color(0xFF00a650),
         title: const Text(
           'Change Password',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
@@ -159,7 +159,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                   height: 50,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF0088d1),
+                      backgroundColor: const Color(0xFF00a650),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),

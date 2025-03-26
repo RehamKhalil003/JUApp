@@ -49,7 +49,7 @@ class _WithdrawalRequestsTableState extends State<WithdrawalRequestsTable> {
           icon: const Icon(Icons.arrow_back_ios_sharp, color: Colors.white),
           onPressed: () => Navigator.pop(context),
         ),
-        backgroundColor: const Color(0xFF0088d1),
+        backgroundColor: const Color(0xFF00a650),
       ),
       body: ListView.separated(
         padding: const EdgeInsets.all(8.0),

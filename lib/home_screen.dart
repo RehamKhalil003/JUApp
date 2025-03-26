@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_first_project/Chat/ChatScreen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
             'Student Dashboard',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
           ),
-          backgroundColor: const Color(0xFF0088d1), // Main blue color
+          backgroundColor: const Color(0xFF00a650), // Main blue color
           centerTitle: true,
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(60.0), // Adjust the height as needed
@@ -47,14 +48,17 @@ class _HomeScreenState extends State<HomeScreen> {
               child: TabBar(
                 indicator: BoxDecoration(
                   gradient: const LinearGradient(
-                    colors: [Color(0xFF00B8D4), Color(0xFF01579B)],
+                    colors: [
+                      Color(0xFF00A650), // Green shade
+                      Color(0xFF004D40), // Darker complementary green shade
+                    ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.blue.withOpacity(0.6),
+                      color: Colors.green.withOpacity(0.6),
                       blurRadius: 10,
                       spreadRadius: 1,
                     ),
@@ -80,8 +84,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
+
             ),
           ),
+
         ),
         body: TabBarView(
           children: [
@@ -90,6 +96,19 @@ class _HomeScreenState extends State<HomeScreen> {
             _buildExpandableSection(closedRequests, sectionIndex: 2, isRequestSection: true),
           ],
         ),
+
+        // 🟢 Floating Action Button for Chat
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ChatScreen()),
+            );
+          },
+          backgroundColor: const Color(0xFF00a650), // Match theme color
+          child: const Icon(Icons.chat, color: Colors.white),
+        ),
+
       ),
     );
   }
