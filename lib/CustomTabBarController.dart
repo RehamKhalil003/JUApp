@@ -15,7 +15,6 @@ class _CustomTabBarControllerState extends State<CustomTabBarController> {
   final List<Widget> _pages = [
     HomeScreen(),
     RegistrationScreen(),
-    SearchScreen(),
     MyProfileScreen(),
   ];
 
@@ -64,14 +63,6 @@ class _CustomTabBarControllerState extends State<CustomTabBarController> {
                 label: 'Registration',
               ),
               BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage('assets/request-image.jpeg')),
-                label: 'Electronic Request',
-              ),
-              // BottomNavigationBarItem(
-              //   icon: ImageIcon(AssetImage('assets/purchases-image.jpeg')),
-              //   label: 'My Purchases',
-              // ),
-              BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage('assets/profile-image.jpeg')),
                 label: 'My Profile',
               ),
@@ -93,17 +84,9 @@ class _CustomTabBarControllerState extends State<CustomTabBarController> {
   }
 }
 
-class SearchScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('Search Screen'));
-  }
-}
-
-class MyPurchasesScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: Text('My Purchases Screen'));
-  }
-}
-
+// class MyProfileScreen extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return const Center(child: Text('My Profile Screen'));
+//   }
+// }

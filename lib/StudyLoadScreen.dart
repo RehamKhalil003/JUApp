@@ -24,7 +24,7 @@ class _StudyLoadScreenState extends State<StudyLoadScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Automated Study Load", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Color(0xFF00a650),
         elevation: 6,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
@@ -122,7 +122,7 @@ class _StudyLoadScreenState extends State<StudyLoadScreen> {
                       label: const Text("Save", style: TextStyle(fontSize: 17, color: Colors.white, fontWeight: FontWeight.bold)),
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                        backgroundColor: Colors.blueAccent,
+                        backgroundColor: Color(0xFF00a650),
                         padding: const EdgeInsets.symmetric(vertical: 16),
                       ),
                     ),

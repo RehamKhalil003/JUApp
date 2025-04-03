@@ -11,7 +11,7 @@ class _UniversityFeesScreenState extends State<UniversityFees> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("University Fee Payment", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Color(0xFF00a650),
         elevation: 6,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),

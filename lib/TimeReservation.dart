@@ -7,7 +7,7 @@ class Timereservation extends StatelessWidget {
       appBar: AppBar(
         title: Text('Free Time Reservation',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Color(0xFF00a650),
         elevation: 0,
         iconTheme: IconThemeData(color: Colors.white),
       ),
@@ -77,7 +77,7 @@ class Timereservation extends StatelessWidget {
                       icon: Icon(Icons.save, color: Colors.white),
                       label: Text('Save', style: TextStyle(color: Colors.white)),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
+                        backgroundColor: Color(0xFF00a650),
                         padding: EdgeInsets.symmetric(vertical: 12, horizontal: 24),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                       ),
@@ -98,7 +98,7 @@ class Timereservation extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
         children: [
-          Icon(icon, color: Colors.blueAccent),
+          Icon(icon, color: Color(0xFF00a650)),
           SizedBox(width: 10),
           Expanded(
             child: Text(
