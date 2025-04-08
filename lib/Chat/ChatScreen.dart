@@ -4,20 +4,6 @@ import 'package:string_similarity/string_similarity.dart';
 import 'package:csv/csv.dart';
 import 'dart:convert';
 
-// void main() {
-//   runApp(MyApp());
-// }
-//
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       home: ChatScreen(),
-//     );
-//   }
-// }
-
 class ChatScreen extends StatefulWidget {
   @override
   _ChatScreenState createState() => _ChatScreenState();
@@ -30,14 +16,6 @@ class _ChatScreenState extends State<ChatScreen> {
   String? _studentId ;
   List<dynamic> _studentData = [];
   bool _isStudentIdEntered = false;
-
-  // final Map<String, String> faqData = {
-  //   "What are completed courses?": "Completed courses are those that the student has successfully finished.",
-  //   "What are not completed courses?": "Not completed courses are the courses that the student has yet to finish.",
-  //   "How do I register for courses?": "You can register for courses through the student portal on the university website.",
-  //   "How do I reset my password?": "You can reset your password via the university portal by clicking 'Forgot Password'.",
-  //   "What is the grading system?": "The grading system follows a scale from A to F. A is excellent, B is good, etc.",
-  // };
 
   @override
   void initState() {
@@ -302,4 +280,4 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
     );
   }
-} 
+}

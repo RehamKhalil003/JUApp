@@ -3,6 +3,12 @@ import 'package:my_first_project/StudyLoadScreen.dart';
 import 'package:my_first_project/UniversityFeesScreen.dart';
 import 'package:my_first_project/WithdrawalRequests.dart';
 import 'package:my_first_project/requirements_screen.dart';
+import 'package:my_first_project/MidtermResultsPage.dart';
+import 'package:my_first_project/FinalResultsPage.dart';
+import 'package:my_first_project/SpecializationsApp.dart';
+import 'package:my_first_project/TrainingApprovalForm.dart';
+import 'package:my_first_project/Clearance.dart';
+import 'package:my_first_project/AskGuide.dart';
 import 'CancelRequest.dart';
 import 'TimeReservation.dart';
 
@@ -24,14 +30,91 @@ class RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Color(0xFF00a650),
+              ),
+              child: Text(
+                'Menu',
+                style: TextStyle(color: Colors.white, fontSize: 24),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.assignment),
+              title: const Text('Half results'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MidtermResultsPage()),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.assignment_turned_in),
+              title: const Text('Final result'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FinalResultsPage()),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.transfer_within_a_station),
+              title: const Text('Fields allow to users to transfer to it'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SpecializationsPage()),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.location_on),
+              title: const Text('Training place'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TrainingApprovalForm()),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.attach_money),
+              title: const Text('Financial liability'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ClearancePage()),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.question_answer),
+              title: const Text('Ask question'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => InquiriesScreen()),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
       backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
         title: const Text(
           'Academic System',
-          style: TextStyle(color: Colors.white , fontWeight: FontWeight.bold, fontSize: 22),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22),
         ),
         backgroundColor: const Color(0xFF00a650),
         elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -47,8 +130,8 @@ class RegistrationScreenState extends State<RegistrationScreen> {
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
                     colors: [
-                      Color(0xFF00a650), // Green
-                      Color(0xFF00cc66), // Slightly lighter green for depth
+                      Color(0xFF00a650),
+                      Color(0xFF00cc66),
                     ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
@@ -68,7 +151,6 @@ class RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                   trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white),
                   onTap: () {
-                    // Navigation logic based on the selected item
                     if (item['title'] == 'Time Reservation') {
                       Navigator.push(
                         context,

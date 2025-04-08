@@ -1,11 +1,99 @@
 import 'package:flutter/material.dart';
+import 'package:my_first_project/StudentInfoForm.dart';
 import 'package:my_first_project/change_password.dart';
 import 'package:my_first_project/Chat/ChatScreen.dart';
+import 'package:my_first_project/MidtermResultsPage.dart';
+import 'package:my_first_project/FinalResultsPage.dart';
+import 'package:my_first_project/SpecializationsApp.dart';
+import 'package:my_first_project/TrainingApprovalForm.dart';
+import 'package:my_first_project/Clearance.dart';
+import 'package:my_first_project/AskGuide.dart';
+import 'CancelRequest.dart';
+import 'TimeReservation.dart';
+
 class MyProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Color(0xFF00a650),
+              ),
+              child: Text(
+                'Menu',
+                style: TextStyle(color: Colors.white, fontSize: 24),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.assignment),
+              title: const Text('Half results'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MidtermResultsPage()),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.assignment_turned_in),
+              title: const Text('Final result'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FinalResultsPage()),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.transfer_within_a_station),
+              title: const Text('Fields allow to users to transfer to it'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SpecializationsPage()),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.location_on),
+              title: const Text('Training place'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TrainingApprovalForm()),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.attach_money),
+              title: const Text('Financial liability'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ClearancePage()),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.question_answer),
+              title: const Text('Ask question'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => InquiriesScreen()),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+
       appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: Color(0xFF00a650),
         title: const Text(
           'Profile',
@@ -62,15 +150,19 @@ class MyProfileScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              // const SizedBox(height: 25),
-              // _buildGradientButton(
-              //   text: "Edit Info",
-              //   imagePath: "assets/edit-information.jpeg",
-              //   colors: [Colors.blueAccent, Colors.lightBlueAccent],
-              //   onPressed: () {
-              //     // Handle edit info action
-              //   },
-              // ),
+            const SizedBox(height: 15),
+              _buildGradientButton(
+                text: "Student Info Form",
+                colors: [Color(0xFF00a650), Colors.white],
+                imagePath: "assets/profile-image.jpeg",
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const StudentInfoForm()),
+                  );
+                },
+                // child: const Icon(Icons.person),
+              ),
               const SizedBox(height: 15),
               _buildGradientButton(
                 text: "Change Password",

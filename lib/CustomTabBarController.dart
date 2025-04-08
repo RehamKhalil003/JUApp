@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'home_screen.dart';
 import 'Profile.dart';
 import 'RegistrationScreen.dart';
+import 'InquiriesScreen.dart';
 
 class CustomTabBarController extends StatefulWidget {
   @override
@@ -15,6 +16,7 @@ class _CustomTabBarControllerState extends State<CustomTabBarController> {
   final List<Widget> _pages = [
     HomeScreen(),
     RegistrationScreen(),
+    // InquiriesScreen(),
     MyProfileScreen(),
   ];
 
@@ -55,15 +57,15 @@ class _CustomTabBarControllerState extends State<CustomTabBarController> {
             type: BottomNavigationBarType.fixed,
             items: const [
               BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage('assets/home-image.jpeg')),
+                icon: Icon(Icons.home),
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage('assets/registration.jpeg')),
+                icon: Icon(Icons.app_registration),
                 label: 'Registration',
               ),
               BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage('assets/profile-image.jpeg')),
+                icon: Icon(Icons.person),
                 label: 'My Profile',
               ),
             ],
@@ -84,9 +86,3 @@ class _CustomTabBarControllerState extends State<CustomTabBarController> {
   }
 }
 
-// class MyProfileScreen extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Center(child: Text('My Profile Screen'));
-//   }
-// }

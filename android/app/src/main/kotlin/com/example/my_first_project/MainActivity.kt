@@ -1,4 +1,4 @@
-package com.example.my_first_project
+package com.blueray.StudentRegistrationApp
 
 import io.flutter.embedding.android.FlutterActivity
 
