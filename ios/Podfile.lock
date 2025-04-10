@@ -108,7 +108,7 @@ PODS:
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
-  - permission_handler_apple (9.1.1):
+  - permission_handler_apple (9.3.0):
     - Flutter
   - printing (1.0.0):
     - Flutter
@@ -162,7 +162,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   DKImagePickerController: 946cec48c7873164274ecc4624d19e3da4c1ef3c
   DKPhotoGallery: b3834fecb755ee09a593d7c9e389d8b5d6deed60
-  file_picker: 15fd9539e4eb735dc54bae8c0534a7a9511a03de
+  file_picker: b159e0c068aef54932bb15dc9fd1571818edaf49
   Firebase: 0312a2352584f782ea56f66d91606891d4607f06
   firebase_core: a626d00494efa398e7c54f25f1454a64c8abf197
   FirebaseCore: 7ec4d0484817f12c3373955bc87762d96842d483
@@ -173,7 +173,7 @@ SPEC CHECKSUMS:
   onesignal_flutter: c4442bab25faaf3a3ab77cdcd33f4507f10b05b8
   OneSignalXCFramework: 1a3b28dfbff23aabce585796d23c1bef37772774
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
-  permission_handler_apple: e76247795d700c14ea09e3a2d8855d41ee80a2e6
+  permission_handler_apple: 9878588469a2b0d0fc1e048d9f43605f92e6cec2
   printing: 233e1b73bd1f4a05615548e9b5a324c98588640b
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   SDWebImage: f84b0feeb08d2d11e6a9b843cb06d75ebf5b8868

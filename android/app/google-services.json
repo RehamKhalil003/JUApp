@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "603989535576",
+    "project_id": "student-registration-app-new",
+    "storage_bucket": "student-registration-app-new.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:603989535576:android:8f757999e2ab46f8fe932d",
+        "android_client_info": {
+          "package_name": "com.blueray.StudentRegistrationApp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHblLZGSpSGsqIf3I98MeqNOHnlxdxNLA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
